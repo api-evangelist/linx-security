@@ -1,0 +1,80 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.linx.security
+notes: >-
+  Linx publishes no public OpenAPI, so nothing here is derived from a spec.
+  Every entry below is grounded in a published page or badge, or explicitly
+  marked unknown. An identity-governance vendor almost certainly speaks SAML,
+  SCIM, OIDC and OAuth internally, but the public site never names those
+  protocols — the integrations page describes "agentless data ingestion and
+  flexible connectors" without protocol detail — so they are recorded as
+  unknown rather than assumed true.
+standards:
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: Ships a Linx MCP Server and an MCP Gateway that inspects and enforces
+    MCP tool calls.
+  source: https://www.linx.security/platform/mcp-gateway
+- id: llms-txt
+  name: llms.txt
+  conforms: true
+  evidence: Serves a valid, sitemap-derived /llms.txt at www.linx.security.
+  source: https://www.linx.security/llms.txt
+- id: dmarc
+  name: DMARC
+  conforms: true
+  evidence: Both linx.security and linxsecurity.io publish DMARC with p=reject.
+  source: security/linx-security-domain-security.yml
+- id: dnssec
+  name: DNSSEC
+  conforms: partial
+  evidence: linx.security is DNSSEC-signed; linxsecurity.io is not.
+  source: security/linx-security-domain-security.yml
+- id: hsts
+  name: HTTP Strict Transport Security
+  conforms: partial
+  evidence: www.linx.security, docs.linxsecurity.io and status.linxsecurity.io send
+    HSTS; app.linxsecurity.io and trust.linx.security do not.
+  source: security/linx-security-domain-security.yml
+- id: hipaa
+  name: HIPAA
+  conforms: claimed
+  evidence: HIPAA compliance badge published in the site footer; no attestation retrievable.
+  source: https://www.linx.security
+- id: soc2
+  name: SOC 2
+  conforms: unknown
+  evidence: An AICPA badge appears in the site footer, which conventionally indicates
+    a SOC 2 examination, but neither the footer nor the trust center states SOC 2
+    or its type, and no report is retrievable without authentication.
+  source: https://trust.linx.security
+- id: iso-27001
+  name: ISO/IEC 27001
+  conforms: unknown
+  evidence: Not named anywhere on the public site or in the served trust-center HTML.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: unknown
+  evidence: No public OpenAPI or auth documentation. The .well-known/oauth-authorization-server
+    path on app.linxsecurity.io returns a placeholder body ("SOMETHING"), not a valid
+    RFC 8414 document.
+- id: oidc
+  name: OpenID Connect
+  conforms: unknown
+  evidence: .well-known/openid-configuration on app.linxsecurity.io returns a placeholder
+    body ("SOMETHING"), not a valid discovery document.
+- id: scim
+  name: SCIM 2.0
+  conforms: unknown
+  evidence: Not named on the public integrations or platform pages despite the IGA
+    product category.
+- id: rfc9457
+  name: RFC 9457 Problem Details
+  conforms: unknown
+  evidence: No public API surface to evaluate.
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on linx.security, www.linx.security
+    and linxsecurity.io.

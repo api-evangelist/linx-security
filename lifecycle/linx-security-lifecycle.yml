@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.linx.security/docs/sla
+notes: >-
+  Linx publishes a Service Level Agreement and a real, branded status page, but
+  no public API versioning policy, no deprecation/sunset policy, and no
+  changelog or release notes — consistent with a gated enterprise product that
+  ships no public API surface. Those fields are left null rather than guessed.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: No public API versioning policy published.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No deprecation or sunset policy published; no RFC 8594 evidence available
+    without API access.
+sla:
+  url: https://www.linx.security/docs/sla
+  uptime_target: null
+  note: An SLA document is published at /docs/sla; specific uptime commitments were
+    not extracted.
+agreements:
+- name: Master Services Agreement
+  url: https://www.linx.security/docs/msa
+- name: Service Level Agreement
+  url: https://www.linx.security/docs/sla
+- name: Terms of Use
+  url: https://www.linx.security/docs/terms-of-use
+status_page: https://status.linxsecurity.io
+status_page_details:
+  vendor: Better Stack
+  title: Linx Security status
+  status: 200
+  verified: true
+changelog: null
+deprecated_operations: []
+evidence:
+- source: https://status.linxsecurity.io
+  kind: status-page
+  status: 200
+- source: https://www.linx.security/docs/sla
+  kind: sla
+- source: https://www.linx.security/llms.txt
+  kind: llms-txt-index
+disambiguation: >-
+  linx.statuspage.io also resolves but belongs to LINX (the London Internet
+  Exchange), an unrelated organization — deliberately excluded.

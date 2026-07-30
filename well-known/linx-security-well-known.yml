@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: probed
+notes: >-
+  No valid .well-known discovery document was found on any Linx host. The two
+  200 responses on app.linxsecurity.io return the literal body "SOMETHING" —
+  a placeholder/catch-all, not a valid OIDC or RFC 8414 document — so no raw
+  file was saved for them and no OpenIDConnect/OAuth pointer is claimed. All
+  other paths 404. Recorded so re-runs are cheap and the absence is auditable.
+hosts:
+- host: https://www.linx.security
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://linx.security
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://linxsecurity.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://app.linxsecurity.io
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    valid: false
+    body: SOMETHING
+    note: Placeholder catch-all response, not a valid OIDC discovery document.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    valid: false
+    body: SOMETHING
+    note: Placeholder catch-all response, not a valid RFC 8414 document.
+other_agent_surfaces:
+- path: /llms.txt
+  host: https://www.linx.security
+  status: 200
+  file: ../llms/linx-security-llms.txt
+  note: Real, sitemap-derived llms.txt. Saved verbatim.

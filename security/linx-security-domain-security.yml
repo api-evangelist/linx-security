@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts plus the linxsecurity.io product hosts
+notes: >-
+  Linx operates two registrable domains: linx.security (marketing site, Webflow
+  behind Cloudflare) and linxsecurity.io (product app, docs/login, status page).
+  Both enforce DMARC p=reject. linx.security has DNSSEC enabled (Cloudflare
+  universal signing) but publishes no SPF on the apex and no CAA; linxsecurity.io
+  publishes SPF but no DNSSEC and no CAA. Absence of a record is recorded data,
+  not an error.
+hosts:
+- host: www.linx.security
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 11 03:11:14 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: trust.linx.security
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  9 11:22:36 2026 GMT
+  hsts: false
+- host: app.linxsecurity.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 27 23:59:59 2026 GMT
+  hsts: false
+- host: docs.linxsecurity.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 21 02:35:50 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: status.linxsecurity.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 22:00:07 2026 GMT
+  hsts: true
+  hsts_max_age: 63113904
+  hsts_include_subdomains: true
+  hsts_preload: true
+domains:
+- domain: linx.security
+  dnssec: true
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_rua: mailto:dmarc-reports@linxsecurity.io
+- domain: linxsecurity.io
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:_spf.google.com include:amazonses.com include:145005636.spf03.hubspotemail.net
+    -all
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_rua: mailto:dmarc-reports@linxsecurity.io
