@@ -2,14 +2,12 @@ generated: '2026-07-19'
 method: searched
 source: https://www.linx.security/blog/introducing-the-linx-mcp-server
 status: published
-notes: >-
-  Linx publishes two distinct MCP surfaces: the Linx MCP Server (exposes Linx
-  identity data and actions to AI agents) and the Linx MCP Gateway (a policy
-  enforcement point that inspects and governs MCP tool calls made by agents to
-  OTHER enterprise applications). Both are announced product surfaces. Neither
-  publishes a public endpoint URL, transport, installation snippet, or tool
-  manifest — access is gated behind an enterprise demo/sales motion. Transport
-  and URL are therefore left null rather than guessed.
+notes: 'Linx publishes two distinct MCP surfaces: the Linx MCP Server (exposes Linx identity data and
+  actions to AI agents) and the Linx MCP Gateway (a policy enforcement point that inspects and governs
+  MCP tool calls made by agents to OTHER enterprise applications). Both are announced product surfaces.
+  Neither publishes a public endpoint URL, transport, installation snippet, or tool manifest — access
+  is gated behind an enterprise demo/sales motion. Transport and URL are therefore left null rather than
+  guessed.'
 server:
   name: linx
   transport: null
@@ -19,42 +17,35 @@ server:
 gateway:
   name: Linx MCP Gateway
   url: https://www.linx.security/platform/mcp-gateway
-  role: >-
-    Sits between AI platforms and enterprise applications; performs inline
-    tool-level enforcement on each MCP tool call before execution, applies a
-    unified identity policy across human, non-human, and AI agent identities,
-    and writes a complete audit trail of agent actions.
+  role: Sits between AI platforms and enterprise applications; performs inline tool-level enforcement
+    on each MCP tool call before execution, applies a unified identity policy across human, non-human,
+    and AI agent identities, and writes a complete audit trail of agent actions.
   capabilities:
   - id: inline-tool-level-enforcement
-    description: Inspects each MCP tool call in real time before execution, controlling
-      which tools agents can invoke and what data they can access.
+    description: Inspects each MCP tool call in real time before execution, controlling which tools agents
+      can invoke and what data they can access.
   - id: unified-identity-policy
-    description: Extends governance logic across human identities, non-human identities,
-      and AI agents through one coherent framework.
+    description: Extends governance logic across human identities, non-human identities, and AI agents
+      through one coherent framework.
   - id: complete-audit-trail
-    description: Logs all agent actions including initiating identities, tool calls,
-      and outcomes.
+    description: Logs all agent actions including initiating identities, tool calls, and outcomes.
 capabilities:
 - id: identity-graph-query
-  description: Lets agents query the Linx Identity Graph to answer questions about
-    identity data.
+  description: Lets agents query the Linx Identity Graph to answer questions about identity data.
 - id: unified-identity-actions
-  description: Gives AI agents governed access to identity actions including human
-    and non-human identity investigation, risk detection, access profile, JIT access
-    request, and access certification.
+  description: Gives AI agents governed access to identity actions including human and non-human identity
+    investigation, risk detection, access profile, JIT access request, and access certification.
 - id: automation-and-remediation
-  description: Lets agents flag, recommend, or trigger cleanup of unused, risky, or
-    unapproved access, plus identity lifecycle management and access governance.
+  description: Lets agents flag, recommend, or trigger cleanup of unused, risky, or unapproved access,
+    plus identity lifecycle management and access governance.
 integrates_with:
 - Linx AI Assistant
 - ChatGPT
 - Claude
 - Gemini
 tools: []
-tools_note: >-
-  No tool manifest is published. Tools are deliberately NOT enumerated here —
-  the capability list above is what the vendor documents, and inventing tool
-  names would be fabrication.
+tools_note: No tool manifest is published. Tools are deliberately NOT enumerated here — the capability
+  list above is what the vendor documents, and inventing tool names would be fabrication.
 evidence:
 - source: https://www.linx.security/blog/introducing-the-linx-mcp-server
   kind: announcement
@@ -68,6 +59,15 @@ evidence:
   kind: blog
 probes:
 - url: https://mcp.linx.security
-  status: 000
+  status: 0
 - url: https://mcp.linxsecurity.io
-  status: 000
+  status: 0
+deployment:
+  mode: none
+  endpoint: https://www.linx.security/blog/introducing-the-linx-mcp-server
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census
