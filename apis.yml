@@ -9,6 +9,17 @@ description: 'Linx Security is an AI-native identity security and governance pla
   was founded by Israel Duanis and Niv Goldenberg, emerged from stealth with $33M in funding, and has
   since raised a $50M Series B. The product is delivered as gated enterprise SaaS at app.linxsecurity.io;
   no public API documentation or developer portal is published at this time.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
