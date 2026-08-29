@@ -33,6 +33,9 @@ accessModel:
   method: derived
 image: https://cdn.prod.website-files.com/69529b4327b8e0f645d9edff/6994d775451e099494971ae4_OG.png
 url: https://raw.githubusercontent.com/api-evangelist/linx-security/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "The product is delivered as gated enterprise SaaS at app.linxsecurity.io; no public API documentation or developer portal is published at this time."
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
