@@ -63,6 +63,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: GitHubOrganization
+  url: https://github.com/linx-security
 - type: Website
   url: https://www.linx.security
 - type: Blog
